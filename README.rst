@@ -1,40 +1,11 @@
-.. You should enable this project on travis-ci.org and coveralls.io to make
-   these badges work. The necessary Travis and Coverage config files have been
-   generated for you.
-
-.. image:: https://travis-ci.org/espona/ckanext-composite.svg?branch=master
-    :target: https://travis-ci.org/espona/ckanext-composite
- 
-.. image:: https://coveralls.io/repos/espona/ckanext-composite/badge.svg
-  :target: https://coveralls.io/r/espona/ckanext-composite
-
-.. image:: https://img.shields.io/pypi/dm/ckanext-composite.svg
-    :target: https://pypi.python.org/pypi//ckanext-composite/
-    :alt: Downloads
-
-.. image:: https://img.shields.io/pypi/v/ckanext-composite.svg
-    :target: https://pypi.python.org/pypi/ckanext-composite/
-    :alt: Latest Version
-
-.. image:: https://img.shields.io/pypi/pyversions/ckanext-composite.svg
-    :target: https://pypi.python.org/pypi/ckanext-composite/
-    :alt: Supported Python versions
-
-.. image:: https://img.shields.io/pypi/status/ckanext-composite.svg
-    :target: https://pypi.python.org/pypi/ckanext-composite/
-    :alt: Development Status
-
-.. image:: https://img.shields.io/pypi/l/ckanext-composite.svg
-    :target: https://pypi.python.org/pypi/ckanext-composite/
-    :alt: License
-
 =============
 ckanext-composite
 =============
 
-.. Put a description of your extension here:
-   What does it do? What features does it have?
-   Consider including some screenshots or embedding a video!
+This CKAN extension is intended to be used in combination with the [SDDI CKAN Docker container](https://github.com/tum-gis/SDDI-CKAN-Docker).
+
+## Overview
+
    
 Allows to store structured dataset metadata, single or multiple fields. Only one level of subfields is possible. The subfields can be basic text, date type o choice dropboxes. Do not use dashes or numbers in the labels or values of fields.
 
@@ -153,18 +124,19 @@ Add this to your schema.json file::
           }
        ]
       }
-      
-------------------------
-Development Installation
-------------------------
+	  
 
-To install ckanext-composite for development, activate your CKAN virtualenv and
-do::
+## Installation
 
-    git clone https://github.com/EnviDat/ckanext-composite.git
-    cd ckanext-composite
-    python setup.py develop
-    pip install -r dev-requirements.txt
+Install the extension in your python environment
+```
+$ . /usr/lib/ckan/default/bin/activate
+(pyenv) $ cd /usr/lib/ckan/default/src
+(pyenv) $ pip install -e "git+https://tum-gis/ckanext-composite-sddi.git#egg=ckanext-composite-sddi"
+```
+Then change your CKAN ini file (e.g. development.ini or production.ini).
+```
+ckan.plugins = stats text_view recline_view ... composite
 
 
 -----------------
